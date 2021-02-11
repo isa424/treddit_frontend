@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import '../styles/globals.css';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const theme = {
+	media: {
+		mobile: 425,
+	},
 	colors: {
 		primary: '#0070f3',
 	},

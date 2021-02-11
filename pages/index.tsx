@@ -1,53 +1,21 @@
 import { NextPage } from 'next';
 import Layout from '../components/layout';
-import styles from '../styles/Home.module.css'
 import styled from 'styled-components';
 
 const Red = styled('p')`
 	color: red;
 `;
 
+const Text = () => (
+	<p>{'Donec porttitor congue fermentum. Cras dignissim nisl nunc, eu iaculis arcu bibendum gravida. Suspendisse condimentum purus ullamcorper, ultricies neque id, iaculis lorem. Aliquam cursus bibendum risus ut sagittis. Aenean odio velit, vestibulum eleifend tempor ac, euismod non velit. Sed consequat ligula tortor, nec vehicula augue aliquam nec. Etiam at est massa. Aliquam arcu ante, mollis vitae est vel, ornare malesuada dolor. Ut id porta tortor. Integer rhoncus mauris tortor. Proin condimentum erat justo, a luctus lacus convallis ac. Aliquam ligula orci, porta et erat quis, aliquam condimentum ante. Aliquam diam nisl, egestas vitae risus a, blandit finibus mi.'}</p>
+);
+
 const Home: NextPage = () => {
 	return (
 		<Layout>
-			<h1 className={styles.title}>
-				Welcome to <a href="https://nextjs.org">Next.js!</a>
-			</h1>
-
-			<p className={styles.description}>
-				Get started by editing{' '}
-				<code className={styles.code}>pages/index.js</code>
-			</p>
-
-			<div className={styles.grid}>
-				<a href="https://nextjs.org/docs" className={styles.card}>
-					<h3>Documentation &rarr;</h3>
-					<p>Find in-depth information about Next.js features and API.</p>
-				</a>
-
-				<a href="https://nextjs.org/learn" className={styles.card}>
-					<h3>Learn &rarr;</h3>
-					<p>Learn about Next.js in an interactive course with quizzes!</p>
-				</a>
-
-				<a
-					href="https://github.com/vercel/next.js/tree/master/examples"
-					className={styles.card}
-				>
-					<h3>Examples &rarr;</h3>
-					<Red>Discover and deploy boilerplate example Next.js projects.</Red>
-				</a>
-
-				<a
-					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					className={styles.card}
-				>
-					<h3>Deploy &rarr;</h3>
-					<p>
-						Instantly deploy your Next.js site to a public URL with Vercel.
-					</p>
-				</a>
-			</div>
+			{[1, 2, 3, 4, 5, 6].map((_, i) => (
+				<Text key={i}/>
+			))}
 		</Layout>
 	);
 }
