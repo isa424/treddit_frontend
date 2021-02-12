@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
 import Head from 'next/head';
-import Footer from './footer';
-import Header from './header';
+import Footer from './footer/footer';
+import Header from './header/header';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 

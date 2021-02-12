@@ -96,6 +96,7 @@ const Footer: FC = () => {
 					</StyledList>
 				</StyledFooter>
 				<div
+					id={'brand'}
 					className={
 						'd-flex align-items-center justify-content-center py-3'
 					}

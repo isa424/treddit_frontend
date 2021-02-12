@@ -1,0 +1,6 @@
+{
+  "bail": true,
+  "notify": true,
+  "setupFilesAfterEnv": ["<rootDir>/jest-setup.ts"],
+  "verbose": true
+}
