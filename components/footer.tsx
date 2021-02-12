@@ -1,4 +1,4 @@
-import React, { FC, Fragment, } from 'react';
+import React, { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
 const StyledFooter = styled('div')`
@@ -15,7 +15,9 @@ const Footer: FC = () => {
 	return (
 		<Fragment>
 			<footer className={'bg-light border-top'}>
-				<StyledFooter className={'d-flex justify-content-around container mt-4'}>
+				<StyledFooter
+					className={'d-flex justify-content-around container mt-4'}
+				>
 					<StyledList>
 						<li>
 							<h4>{'About'}</h4>
@@ -93,10 +95,16 @@ const Footer: FC = () => {
 						</li>
 					</StyledList>
 				</StyledFooter>
-				<div className={'d-flex align-items-center justify-content-center py-3'}>{'Brand © 2021'}</div>
+				<div
+					className={
+						'd-flex align-items-center justify-content-center py-3'
+					}
+				>
+					{'Brand © 2021'}
+				</div>
 			</footer>
 		</Fragment>
 	);
-}
+};
 
 export default Footer;

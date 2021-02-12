@@ -19,15 +19,15 @@ const theme = {
 	},
 };
 
-const MyApp = ({Component, pageProps}: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
-			<GlobalStyle/>
+			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
-	)
-}
+	);
+};
 
 export default MyApp;
