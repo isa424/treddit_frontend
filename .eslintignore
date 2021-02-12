@@ -1,0 +1,4 @@
+**/*.js
+.next/
+.idea/
+.husky/
