@@ -122,7 +122,7 @@ exports[`Header component should match the snapshot 1`] = `
         </li>
       </ul>
       <a
-        className="header__TallLink-sc-1cwp5wr-3 bmAPwi btn btn-outline-success d-flex align-items-center shadow-sm ml-2"
+        className="header__TallLink-sc-1cwp5wr-2 lbwciX btn btn-outline-success d-flex align-items-center shadow-sm ml-2"
         href="/posts/create"
         onClick={[Function]}
         onMouseEnter={[Function]}

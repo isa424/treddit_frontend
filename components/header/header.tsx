@@ -26,10 +26,6 @@ const Input = styled('input')`
 	}
 `;
 
-const AddPost = styled('a')`
-	height: 40px;
-`;
-
 const TallLink = styled('a')`
 	height: 40px;
 `;

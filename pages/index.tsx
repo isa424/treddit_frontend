@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import Layout from '../components/layout';
+import PostsList from '../components/posts/posts_list';
 
 const Text = () => (
 	<p>
@@ -11,11 +12,20 @@ const Text = () => (
 );
 
 const Home: NextPage = () => {
+	const [limit] = useState(10);
+	const [skip, setSkip] = useState(0);
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		fetch('https://jsonplaceholder.typicode.com/posts')
+			.then((res) => res.json())
+			.then((res) => setPosts(res.slice(skip, limit)))
+			.catch((err) => console.error(err));
+	}, []);
+
 	return (
 		<Layout>
-			{[1, 2, 3, 4, 5, 6].map((_, i) => (
-				<Text key={i} />
-			))}
+			<PostsList posts={posts} />
 		</Layout>
 	);
 };
