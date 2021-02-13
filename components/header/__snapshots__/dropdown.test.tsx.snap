@@ -85,9 +85,7 @@ exports[`Dropdown should match the snapshot 1`] = `
       </div>
       <span
         className="ml-2"
-      >
-        Username
-      </span>
+      />
     </div>
   </button>
   <div

@@ -2,9 +2,11 @@ import { faCog, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC, Fragment, useState } from 'react';
+import React, { FC, Fragment, useRef, useState } from 'react';
 import styled from 'styled-components';
 import clsx from 'clsx';
+import { signOut, useSession } from 'next-auth/client';
+import useOutsideClick from '../../utils/useClickOutside';
 
 const Dropdown = styled('div')`
 	@media screen and (max-width: 991px) {
@@ -28,19 +30,28 @@ const Button = styled('button')`
 
 const ProfileDropdown: FC = () => {
 	const [open, setOpen] = useState(false);
+	const [session, loading] = useSession();
+	const profileButton = useRef();
 
 	const handleOpen = () => {
 		setOpen(!open);
 	};
 
-	const handleLogout = (event: React.MouseEvent<Element, MouseEvent>) => {
-		console.log(event);
+	const handleLogout = async () => {
+		try {
+			await signOut();
+		} catch (err) {
+			console.error(err);
+		}
 	};
+
+	useOutsideClick(profileButton, () => setOpen(false));
 
 	return (
 		<Fragment>
 			<Dropdown className="dropdown">
 				<Button
+					ref={profileButton}
 					className="btn btn-light dropdown-toggle p-0 ml-3"
 					type="button"
 					id="dropdown"
@@ -49,12 +60,12 @@ const ProfileDropdown: FC = () => {
 					<div className={'d-flex align-items-center'}>
 						<Profile>
 							<RoundedImage
-								src={'/profile.png'}
+								src={session?.user?.image}
 								height={40}
 								width={40}
 							/>
 						</Profile>
-						<span className={'ml-2'}>{'Username'}</span>
+						<span className={'ml-2'}>{session?.user?.name}</span>
 					</div>
 				</Button>
 				<div

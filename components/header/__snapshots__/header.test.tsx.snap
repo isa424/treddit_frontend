@@ -122,8 +122,8 @@ exports[`Header component should match the snapshot 1`] = `
         </li>
       </ul>
       <a
-        className="header__AddPost-sc-1cwp5wr-2 oALVH btn btn-outline-success d-flex align-items-center"
-        href="/create-post"
+        className="header__TallLink-sc-1cwp5wr-3 bmAPwi btn btn-outline-success d-flex align-items-center shadow-sm ml-2"
+        href="/posts/create"
         onClick={[Function]}
         onMouseEnter={[Function]}
       >
@@ -237,9 +237,7 @@ exports[`Header component should match the snapshot 1`] = `
             </div>
             <span
               className="ml-2"
-            >
-              Username
-            </span>
+            />
           </div>
         </button>
         <div

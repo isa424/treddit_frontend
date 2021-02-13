@@ -40,6 +40,7 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html>
+				{/* https://github.com/vercel/next.js/blob/master/errors/no-document-title.md */}
 				<Head>
 					<link
 						rel="stylesheet"
@@ -47,7 +48,6 @@ class MyDocument extends Document {
 						integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 						crossOrigin="anonymous"
 					/>
-					<title>{'Test'}</title>
 				</Head>
 				<body>
 					<Main />

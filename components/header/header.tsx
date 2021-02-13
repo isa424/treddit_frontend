@@ -3,13 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faPlus,
-	faUser,
-	faCog,
-	faSignOutAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import ProfileDropdown from './dropdown';
+import { useSession } from 'next-auth/client';
 
 const StyledNav = styled('nav')`
 	border-radius: 0;
@@ -34,7 +30,13 @@ const AddPost = styled('a')`
 	height: 40px;
 `;
 
+const TallLink = styled('a')`
+	height: 40px;
+`;
+
 const Header: FC = () => {
+	const [session, loading] = useSession();
+
 	return (
 		<Fragment>
 			<StyledNav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -81,23 +83,50 @@ const Header: FC = () => {
 								</div>
 							</li>
 						</ul>
-						<Link href={'/create-post'} passHref={true}>
-							<AddPost
-								className={
-									'btn btn-outline-success d-flex align-items-center'
-								}
-							>
-								<Fragment>
-									<FontAwesomeIcon
-										fixedWidth={true}
-										icon={faPlus}
-									/>
-									<i className="fas fa-plus" />
-									<span className={'ml-2'}>{'New Post'}</span>
-								</Fragment>
-							</AddPost>
-						</Link>
-						<ProfileDropdown />
+						{!session ? (
+							<Fragment>
+								<Link href={'/login'} passHref={true}>
+									<TallLink
+										className={
+											'btn-outline-primary btn shadow-sm d-flex align-items-center'
+										}
+									>
+										<FontAwesomeIcon
+											fixedWidth={true}
+											icon={faSignInAlt}
+										/>
+										<span className={'ml-2'}>
+											{'Login'}
+										</span>
+									</TallLink>
+								</Link>
+								{/*<Link href={'/signup'} passHref={true}>*/}
+								{/*	<TallLink className={'btn-outline-primary btn ml-2'}>{'Sign Up'}</TallLink>*/}
+								{/*</Link>*/}
+							</Fragment>
+						) : (
+							<Fragment>
+								<Link href={'/posts/create'} passHref={true}>
+									<TallLink
+										className={
+											'btn btn-outline-success d-flex align-items-center shadow-sm ml-2'
+										}
+									>
+										<Fragment>
+											<FontAwesomeIcon
+												fixedWidth={true}
+												icon={faPlus}
+											/>
+											<i className="fas fa-plus" />
+											<span className={'ml-2'}>
+												{'New Post'}
+											</span>
+										</Fragment>
+									</TallLink>
+								</Link>
+								<ProfileDropdown />
+							</Fragment>
+						)}
 					</div>
 				</div>
 			</StyledNav>

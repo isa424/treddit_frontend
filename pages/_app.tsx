@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { Provider } from 'next-auth/client';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,10 +23,12 @@ const theme = {
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
-			<GlobalStyle />
-			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
-			</ThemeProvider>
+			<Provider session={pageProps.session}>
+				<GlobalStyle />
+				<ThemeProvider theme={theme}>
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</Provider>
 		</>
 	);
 };
