@@ -13,6 +13,7 @@ const ImageContainer = styled('div')`
 `;
 
 interface IProps {
+	i?: number;
 	className?: string;
 	post: Record<string, string>;
 }
@@ -115,6 +116,7 @@ const Post: FC<IProps> = ({ post, className }) => {
 };
 
 Post.propTypes = {
+	i: PropTypes.number,
 	className: PropTypes.string,
 	post: PropTypes.any.isRequired,
 };

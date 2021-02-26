@@ -4,7 +4,7 @@ import Post from './post';
 import styled from 'styled-components';
 
 const StyledPost = styled(Post)`
-	margin: 20px 0;
+	margin: ${({ i }) => (i === 0 ? '0' : '20px')} 0;
 `;
 
 interface IProps {
@@ -15,7 +15,7 @@ const PostsList: FC<IProps> = ({ posts }) => {
 	return (
 		<Fragment>
 			{posts.map((p, i) => (
-				<StyledPost key={i} post={p} />
+				<StyledPost key={i} i={i} post={p} />
 			))}
 
 			{/* Pagination */}
